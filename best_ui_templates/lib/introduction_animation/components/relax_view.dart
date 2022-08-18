@@ -3,16 +3,15 @@ import 'package:flutter/material.dart';
 class RelaxView extends StatelessWidget {
   final AnimationController animationController;
 
-  const RelaxView({Key? key, required this.animationController})
-      : super(key: key);
+  const RelaxView({Key? key, required this.animationController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final _firstHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).animate(
+        Tween<Offset>(begin: const Offset(0, 1), end: const Offset(0, 0)).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.0,
           0.2,
           curve: Curves.fastOutSlowIn,
@@ -20,10 +19,10 @@ class RelaxView extends StatelessWidget {
       ),
     );
     final _secondHalfAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-1, 0)).animate(
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-1, 0)).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.2,
           0.4,
           curve: Curves.fastOutSlowIn,
@@ -31,10 +30,10 @@ class RelaxView extends StatelessWidget {
       ),
     );
     final _textAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-2, 0)).animate(
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-2, 0)).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.2,
           0.4,
           curve: Curves.fastOutSlowIn,
@@ -42,10 +41,10 @@ class RelaxView extends StatelessWidget {
       ),
     );
     final _imageAnimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(-4, 0)).animate(
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(-4, 0)).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.2,
           0.4,
           curve: Curves.fastOutSlowIn,
@@ -54,10 +53,10 @@ class RelaxView extends StatelessWidget {
     );
 
     final _relaxAnimation =
-        Tween<Offset>(begin: Offset(0, -2), end: Offset(0, 0)).animate(
+        Tween<Offset>(begin: const Offset(0, -2), end: const Offset(0, 0)).animate(
       CurvedAnimation(
         parent: animationController,
-        curve: Interval(
+        curve: const Interval(
           0.0,
           0.2,
           curve: Curves.fastOutSlowIn,
@@ -75,16 +74,15 @@ class RelaxView extends StatelessWidget {
             children: [
               SlideTransition(
                 position: _relaxAnimation,
-                child: Text(
+                child: const Text(
                   "Relax",
                   style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold),
                 ),
               ),
               SlideTransition(
                 position: _textAnimation,
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                   child: Text(
                     "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
                     textAlign: TextAlign.center,
@@ -94,7 +92,7 @@ class RelaxView extends StatelessWidget {
               SlideTransition(
                 position: _imageAnimation,
                 child: Container(
-                  constraints: BoxConstraints(maxWidth: 350, maxHeight: 250),
+                  constraints: const BoxConstraints(maxWidth: 350, maxHeight: 250),
                   child: Image.asset(
                     'assets/introduction_animation/relax_image.png',
                     fit: BoxFit.contain,

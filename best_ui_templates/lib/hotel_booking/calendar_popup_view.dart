@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:best_ui_templates/hotel_booking/hotel_app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -120,7 +118,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView> with TickerProvid
                                         startDate != null
                                             ? DateFormat('EEE, dd MMM').format(startDate!)
                                             : '--/-- ',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
                                         ),
@@ -152,7 +150,8 @@ class _CalendarPopupViewState extends State<CalendarPopupView> with TickerProvid
                                         endDate != null
                                             ? DateFormat('EEE, dd MMM').format(endDate!)
                                             : '--/-- ',
-                                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold, fontSize: 16),
                                       ),
                                     ],
                                   ),
@@ -204,7 +203,7 @@ class _CalendarPopupViewState extends State<CalendarPopupView> with TickerProvid
                                         Navigator.pop(context);
                                       } catch (_) {}
                                     },
-                                    child: Center(
+                                    child: const Center(
                                       child: Text(
                                         'Apply',
                                         style: TextStyle(

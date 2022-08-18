@@ -107,13 +107,15 @@ class _DrawerUserControllerState extends State<DrawerUserController> with Ticker
                     return Transform(
                       transform: Matrix4.translationValues(scrollController!.offset, 0.0, 0.0),
                       child: HomeDrawer(
-                        screenIndex: widget.screenIndex ?? DrawerIndex.HOME,
+                        screenIndex: widget.screenIndex ?? DrawerIndex.hOME,
                         iconAnimationController: iconAnimationController,
                         callBackIndex: (DrawerIndex indexType) {
                           onDrawerClick();
                           try {
                             widget.onDrawerCall!(indexType);
-                          } catch (e) {}
+                          } catch (e) {
+                            //
+                          }
                         },
                       ),
                     );

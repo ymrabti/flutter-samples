@@ -1,7 +1,10 @@
 import 'package:best_ui_templates/app_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class InviteFriend extends StatefulWidget {
+  const InviteFriend({Key? key}) : super(key: key);
+
   @override
   _InviteFriendState createState() => _InviteFriendState();
 }
@@ -29,7 +32,7 @@ class _InviteFriendState extends State<InviteFriend> {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 8),
-                child: Text(
+                child: const Text(
                   'Invite Your Friends',
                   style: TextStyle(
                     fontSize: 20,
@@ -69,20 +72,22 @@ class _InviteFriendState extends State<InviteFriend> {
                         child: InkWell(
                           onTap: () {
                             //method here for functionality
-                            print('Share Action.');
+                            if (kDebugMode) {
+                              print('Share Action.');
+                            }
                           },
                           child: Center(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
+                              children: const <Widget>[
                                 Icon(
                                   Icons.share,
                                   color: Colors.white,
                                   size: 22,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(4.0),
+                                  padding: EdgeInsets.all(4.0),
                                   child: Text(
                                     'Share',
                                     style: TextStyle(

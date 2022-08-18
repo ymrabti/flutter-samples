@@ -38,7 +38,20 @@ class _ExamplePupUpShapesState extends State<ExamplePupUpShapes> {
   @override
   Widget build(BuildContext context) {
     return PopupShapes(
-      child: const Icon(Icons.abc_rounded),
+      child: Column(
+        children: const [
+          Icon(Icons.abc_rounded),
+          Icon(Icons.abc_rounded),
+          Icon(Icons.abc_rounded),
+          Icon(Icons.abc_rounded),
+          Icon(Icons.abc_rounded),
+          Icon(Icons.abc_rounded),
+          Icon(Icons.abc_rounded),
+        ],
+      ),
+      width: 200,
+      height: 300,
+      position: PopupArrowPosition.bottomLeft,
     );
   }
 }

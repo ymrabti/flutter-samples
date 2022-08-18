@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ymrabtiapps.flutter_samples.flutter_samples">
    <application
-        android:label="flutter_samples"
+        android:label="Flutter Samples"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

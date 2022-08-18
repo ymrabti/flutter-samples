@@ -24,7 +24,8 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
   @override
   void initState() {
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-        parent: widget.animationController!, curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+        parent: widget.animationController!,
+        curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
     addAllListData();
 
     scrollController.addListener(() {
@@ -60,7 +61,7 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
         subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve: Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -69,7 +70,7 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
       WorkoutView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve: Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -77,7 +78,7 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
       RunningView(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve: Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -88,7 +89,7 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
         subTxt: 'more',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve: Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -97,7 +98,7 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
       AreaListView(
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve: Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController!,
       ),
     );
@@ -212,7 +213,7 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
                                 highlightColor: Colors.transparent,
                                 borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                                 onTap: () {},
-                                child: Center(
+                                child: const Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_left,
                                     color: FitnessAppTheme.grey,
@@ -226,9 +227,9 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
                                 right: 8,
                               ),
                               child: Row(
-                                children: <Widget>[
+                                children: const <Widget>[
                                   Padding(
-                                    padding: const EdgeInsets.only(right: 8),
+                                    padding: EdgeInsets.only(right: 8),
                                     child: Icon(
                                       Icons.calendar_today,
                                       color: FitnessAppTheme.grey,
@@ -256,7 +257,7 @@ class _TrainingScreenState extends State<TrainingScreen> with TickerProviderStat
                                 highlightColor: Colors.transparent,
                                 borderRadius: const BorderRadius.all(Radius.circular(32.0)),
                                 onTap: () {},
-                                child: Center(
+                                child: const Center(
                                   child: Icon(
                                     Icons.keyboard_arrow_right,
                                     color: FitnessAppTheme.grey,

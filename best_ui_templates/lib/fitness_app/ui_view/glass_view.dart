@@ -15,8 +15,8 @@ class GlassView extends StatelessWidget {
       builder: (BuildContext context, Widget? child) {
         return FadeTransition(
           opacity: animation!,
-          child: new Transform(
-            transform: new Matrix4.translationValues(0.0, 30 * (1.0 - animation!.value), 0.0),
+          child: Transform(
+            transform: Matrix4.translationValues(0.0, 30 * (1.0 - animation!.value), 0.0),
             child: Column(
               children: <Widget>[
                 Padding(
@@ -29,7 +29,7 @@ class GlassView extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             color: HexColor("#D7E0F9"),
-                            borderRadius: BorderRadius.only(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(8.0),
                                 bottomLeft: Radius.circular(8.0),
                                 bottomRight: Radius.circular(8.0),

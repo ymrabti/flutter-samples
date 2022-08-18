@@ -46,9 +46,12 @@ class _MealsListViewState extends State<MealsListView> with TickerProviderStateM
         return FadeTransition(
           opacity: widget.mainScreenAnimation!,
           child: Transform(
-            transform:
-                Matrix4.translationValues(0.0, 30 * (1.0 - widget.mainScreenAnimation!.value), 0.0),
-            child: Container(
+            transform: Matrix4.translationValues(
+              0.0,
+              30 * (1.0 - widget.mainScreenAnimation!.value),
+              0.0,
+            ),
+            child: SizedBox(
               height: 216,
               width: double.infinity,
               child: ListView.builder(
@@ -133,7 +136,7 @@ class MealsView extends StatelessWidget {
                             Text(
                               mealsListData!.titleTxt,
                               textAlign: TextAlign.center,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: FitnessAppTheme.fontName,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
@@ -150,7 +153,7 @@ class MealsView extends StatelessWidget {
                                   children: <Widget>[
                                     Text(
                                       mealsListData!.meals!.join('\n'),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontFamily: FitnessAppTheme.fontName,
                                         fontWeight: FontWeight.w500,
                                         fontSize: 10,
@@ -170,7 +173,7 @@ class MealsView extends StatelessWidget {
                                       Text(
                                         mealsListData!.kacl.toString(),
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontFamily: FitnessAppTheme.fontName,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 24,
@@ -178,8 +181,8 @@ class MealsView extends StatelessWidget {
                                           color: FitnessAppTheme.white,
                                         ),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 4, bottom: 3),
+                                      const Padding(
+                                        padding: EdgeInsets.only(left: 4, bottom: 3),
                                         child: Text(
                                           'kcal',
                                           style: TextStyle(
@@ -200,7 +203,7 @@ class MealsView extends StatelessWidget {
                                       boxShadow: <BoxShadow>[
                                         BoxShadow(
                                             color: FitnessAppTheme.nearlyBlack.withOpacity(0.4),
-                                            offset: Offset(8.0, 8.0),
+                                            offset: const Offset(8.0, 8.0),
                                             blurRadius: 8.0),
                                       ],
                                     ),

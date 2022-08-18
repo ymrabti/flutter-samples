@@ -40,7 +40,6 @@ class PopupShapes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height,
       width: width,
       child: CustomPaint(
         painter: ShapePainter(

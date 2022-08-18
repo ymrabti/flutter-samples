@@ -5,6 +5,7 @@ import 'package:best_ui_templates/introduction_animation/components/relax_view.d
 import 'package:best_ui_templates/introduction_animation/components/splash_view.dart';
 import 'package:best_ui_templates/introduction_animation/components/top_back_skip_view.dart';
 import 'package:best_ui_templates/introduction_animation/components/welcome_view.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _IntroductionAnimationScreenState extends State<IntroductionAnimationScree
 
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 8));
+    _animationController = AnimationController(vsync: this, duration: const Duration(seconds: 8));
     _animationController?.animateTo(0.0);
     super.initState();
   }
@@ -33,9 +34,11 @@ class _IntroductionAnimationScreenState extends State<IntroductionAnimationScree
 
   @override
   Widget build(BuildContext context) {
-    print(_animationController?.value);
+    if (kDebugMode) {
+      print(_animationController?.value);
+    }
     return Scaffold(
-      backgroundColor: Color(0xffF7EBE1),
+      backgroundColor: const Color(0xffF7EBE1),
       body: ClipRect(
         child: Stack(
           children: [
@@ -70,7 +73,7 @@ class _IntroductionAnimationScreenState extends State<IntroductionAnimationScree
   }
 
   void _onSkipClick() {
-    _animationController?.animateTo(0.8, duration: Duration(milliseconds: 1200));
+    _animationController?.animateTo(0.8, duration: const Duration(milliseconds: 1200));
   }
 
   void _onBackClick() {

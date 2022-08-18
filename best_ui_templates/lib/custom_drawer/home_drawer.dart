@@ -24,35 +24,35 @@ class _HomeDrawerState extends State<HomeDrawer> {
   void setDrawerListArray() {
     drawerList = <DrawerList>[
       DrawerList(
-        index: DrawerIndex.HOME,
+        index: DrawerIndex.hOME,
         labelName: 'Home',
-        icon: Icon(Icons.home),
+        icon: const Icon(Icons.home),
       ),
       DrawerList(
-        index: DrawerIndex.Help,
+        index: DrawerIndex.help,
         labelName: 'Help',
         isAssetsImage: true,
         imageName: 'assets/images/supportIcon.png',
       ),
       DrawerList(
-        index: DrawerIndex.FeedBack,
+        index: DrawerIndex.feedBack,
         labelName: 'FeedBack',
-        icon: Icon(Icons.help),
+        icon: const Icon(Icons.help),
       ),
       DrawerList(
-        index: DrawerIndex.Invite,
+        index: DrawerIndex.invite,
         labelName: 'Invite Friend',
-        icon: Icon(Icons.group),
+        icon: const Icon(Icons.group),
       ),
       DrawerList(
-        index: DrawerIndex.Share,
+        index: DrawerIndex.share,
         labelName: 'Rate the app',
-        icon: Icon(Icons.share),
+        icon: const Icon(Icons.share),
       ),
       DrawerList(
-        index: DrawerIndex.About,
+        index: DrawerIndex.about,
         labelName: 'About Us',
-        icon: Icon(Icons.info),
+        icon: const Icon(Icons.info),
       ),
     ];
   }
@@ -108,8 +108,8 @@ class _HomeDrawerState extends State<HomeDrawer> {
                       );
                     },
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, left: 4),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 8, left: 4),
                     child: Text(
                       'Chris Hemsworth',
                       style: TextStyle(
@@ -147,7 +147,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
           Column(
             children: <Widget>[
               ListTile(
-                title: Text(
+                title: const Text(
                   'Sign Out',
                   style: TextStyle(
                     fontFamily: AppTheme.fontName,
@@ -157,7 +157,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   ),
                   textAlign: TextAlign.left,
                 ),
-                trailing: Icon(
+                trailing: const Icon(
                   Icons.power_settings_new,
                   color: Colors.red,
                 ),
@@ -176,7 +176,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
   }
 
   void onTapped() {
-    print('Doing Something...'); // Print to console.
+    debugPrint('Doing Something...'); // Print to console.
   }
 
   Widget inkwell(DrawerList listData) {
@@ -197,34 +197,37 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   Container(
                     width: 6.0,
                     height: 46.0,
-                    // decoration: BoxDecoration(
-                    //   color: widget.screenIndex == listData.index
-                    //       ? Colors.blue
-                    //       : Colors.transparent,
-                    //   borderRadius: new BorderRadius.only(
-                    //     topLeft: Radius.circular(0),
-                    //     topRight: Radius.circular(16),
-                    //     bottomLeft: Radius.circular(0),
-                    //     bottomRight: Radius.circular(16),
-                    //   ),
-                    // ),
+                    decoration: BoxDecoration(
+                      color:
+                          widget.screenIndex == listData.index ? Colors.blue : Colors.transparent,
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(0),
+                        topRight: Radius.circular(16),
+                        bottomLeft: Radius.circular(0),
+                        bottomRight: Radius.circular(16),
+                      ),
+                    ),
                   ),
                   const Padding(
                     padding: EdgeInsets.all(4.0),
                   ),
                   listData.isAssetsImage
-                      ? Container(
+                      ? SizedBox(
                           width: 24,
                           height: 24,
-                          child: Image.asset(listData.imageName,
-                              color: widget.screenIndex == listData.index
-                                  ? Colors.blue
-                                  : AppTheme.nearlyBlack),
+                          child: Image.asset(
+                            listData.imageName,
+                            color: widget.screenIndex == listData.index
+                                ? Colors.blue
+                                : AppTheme.nearlyBlack,
+                          ),
                         )
-                      : Icon(listData.icon?.icon,
+                      : Icon(
+                          listData.icon?.icon,
                           color: widget.screenIndex == listData.index
                               ? Colors.blue
-                              : AppTheme.nearlyBlack),
+                              : AppTheme.nearlyBlack,
+                        ),
                   const Padding(
                     padding: EdgeInsets.all(4.0),
                   ),
@@ -252,13 +255,13 @@ class _HomeDrawerState extends State<HomeDrawer> {
                             0.0,
                             0.0),
                         child: Padding(
-                          padding: EdgeInsets.only(top: 8, bottom: 8),
+                          padding: const EdgeInsets.only(top: 8, bottom: 8),
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.75 - 64,
                             height: 46,
                             decoration: BoxDecoration(
                               color: Colors.blue.withOpacity(0.2),
-                              borderRadius: new BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(0),
                                 topRight: Radius.circular(28),
                                 bottomLeft: Radius.circular(0),
@@ -283,13 +286,13 @@ class _HomeDrawerState extends State<HomeDrawer> {
 }
 
 enum DrawerIndex {
-  HOME,
-  FeedBack,
-  Help,
-  Share,
-  About,
-  Invite,
-  Testing,
+  hOME,
+  feedBack,
+  help,
+  share,
+  about,
+  invite,
+  testing,
 }
 
 class DrawerList {
