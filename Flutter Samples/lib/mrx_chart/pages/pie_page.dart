@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_samples/mrx_chart/mrx_chart.dart';
 import 'package:mrx_charts/mrx_charts.dart';
 
 class PiePage extends StatefulWidget {

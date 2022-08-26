@@ -1,8 +1,15 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_samples/logger.dart';
 import 'package:intl/intl.dart';
 import 'package:mrx_charts/mrx_charts.dart';
+
+class XY {
+  int x;
+  double y;
+  XY({required this.x, required this.y});
+}
 
 class LinePage extends StatefulWidget {
   const LinePage({Key? key}) : super(key: key);
@@ -12,6 +19,23 @@ class LinePage extends StatefulWidget {
 }
 
 class _LinePageState extends State<LinePage> {
+  late List<XY> charts;
+  int numbMonths = 6;
+  final from = DateTime(2021, 4);
+  late DateTime to;
+  @override
+  void initState() {
+    super.initState();
+    to = from.add(Duration(days: 30 * numbMonths));
+    charts = List.generate(
+      numbMonths,
+      (index) => XY(
+        x: index,
+        y: Random().nextDouble() * 50,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +77,21 @@ class _LinePageState extends State<LinePage> {
     );
   }
 
+  List<double> getMinMax(List<XY> list) {
+    var map = list.map((e) => e.y).toList();
+    map.sort();
+    double mn = map.first;
+    consoleLog(mn);
+    double mx = map.last;
+    consoleLog(mx);
+    /* var lstRtrn = [
+      mn - 0.1 * (mx - mn),
+      max(mx + 0.1 * (mx - mn), mn + 20),
+    ]; */
+    return [mn, mx];
+  }
+
   List<ChartLayer> layers() {
-    final from = DateTime(2021, 4);
-    final to = DateTime(2021, 8);
     final frequency = (to.millisecondsSinceEpoch - from.millisecondsSinceEpoch) / 3.0;
     return [
       ChartHighlightLayer(
@@ -72,33 +108,31 @@ class _LinePageState extends State<LinePage> {
             frequency: frequency,
             max: to.millisecondsSinceEpoch.toDouble(),
             min: from.millisecondsSinceEpoch.toDouble(),
-            textStyle: TextStyle(
-              color: Colors.white.withOpacity(0.6),
-              fontSize: 10.0,
-            ),
+            textStyle: const TextStyle(fontSize: 10.0),
           ),
           y: ChartAxisSettingsAxis(
-            frequency: 100.0,
-            max: 400.0,
-            min: 0.0,
-            textStyle: TextStyle(
-              color: Colors.white.withOpacity(0.6),
-              fontSize: 10.0,
-            ),
+            frequency: 50.0,
+            max: getMinMax(charts)[1],
+            min: getMinMax(charts)[0],
+            textStyle: const TextStyle(fontSize: 10.0),
           ),
         ),
-        labelX: (value) =>
-            DateFormat('MMM').format(DateTime.fromMillisecondsSinceEpoch(value.toInt())),
+        labelX: (value) => DateFormat('MMM').format(
+          DateTime.fromMillisecondsSinceEpoch(
+            value.toInt(),
+          ),
+        ),
         labelY: (value) => value.toInt().toString(),
       ),
       ChartLineLayer(
-        items: List.generate(
-          4,
-          (index) => ChartLineDataItem(
-            x: (index * frequency) + from.millisecondsSinceEpoch,
-            value: Random().nextInt(380) + 20,
-          ),
-        ),
+        items: charts
+            .map(
+              (e) => ChartLineDataItem(
+                x: (e.x * frequency) + from.millisecondsSinceEpoch,
+                value: Random().nextInt(38) + 20,
+              ),
+            )
+            .toList(),
         settings: const ChartLineSettings(
           color: Color(0xFF8043F9),
           thickness: 4.0,

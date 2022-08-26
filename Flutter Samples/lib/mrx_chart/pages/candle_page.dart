@@ -1,6 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:mrx_charts/mrx_charts.dart';
+import 'package:flutter_samples/mrx_chart/mrx_chart.dart';
 
 class CandlePage extends StatefulWidget {
   const CandlePage({Key? key}) : super(key: key);
@@ -103,37 +105,17 @@ class _CandlePageState extends State<CandlePage> {
         labelY: (value) => value.toInt().toString(),
       ),
       ChartCandleLayer(
-        items: _whichCandleMock
-            ? [
-                _candleItem(Colors.green, 50.0, 52.0, 48.0, 53.0, from),
-                _candleItem(Colors.red, 52.0, 54.0, 51.0, 57.0, from + frequencyData),
-                _candleItem(Colors.red, 53.0, 56.0, 53.0, 56.0, from + 2 * frequencyData),
-                _candleItem(Colors.green, 54.0, 56.0, 53.0, 58.0, from + 3 * frequencyData),
-                _candleItem(Colors.green, 55.0, 57.0, 53.0, 58.0, from + 4 * frequencyData),
-                _candleItem(Colors.green, 56.0, 58.0, 56.0, 58.0, from + 5 * frequencyData),
-                _candleItem(Colors.red, 58.0, 60.0, 57.0, 61.0, from + 6 * frequencyData),
-                _candleItem(Colors.green, 57.5, 59.0, 56.5, 60.3, from + 7 * frequencyData),
-                _candleItem(Colors.green, 57.0, 59.0, 57.0, 60.0, from + 8 * frequencyData),
-                _candleItem(Colors.red, 60.0, 62.0, 57.0, 61.0, from + 9 * frequencyData),
-                _candleItem(Colors.green, 63.0, 65.0, 62.0, 66.0, from + 10 * frequencyData),
-                _candleItem(Colors.green, 64.0, 66.0, 63.0, 66.0, from + 11 * frequencyData),
-                _candleItem(Colors.red, 62.0, 64.0, 61.0, 64.0, from + 12 * frequencyData),
-              ]
-            : [
-                _candleItem(Colors.red, 62.0, 64.0, 61.0, 64.0, from),
-                _candleItem(Colors.green, 64.0, 66.0, 63.0, 66.0, from + frequencyData),
-                _candleItem(Colors.green, 63.0, 65.0, 62.0, 66.0, from + 2 * frequencyData),
-                _candleItem(Colors.red, 60.0, 62.0, 57.0, 61.0, from + 3 * frequencyData),
-                _candleItem(Colors.green, 57.0, 59.0, 57.0, 60.0, from + 4 * frequencyData),
-                _candleItem(Colors.green, 57.5, 59.0, 56.5, 60.3, from + 5 * frequencyData),
-                _candleItem(Colors.red, 58.0, 60.0, 57.0, 61.0, from + 6 * frequencyData),
-                _candleItem(Colors.green, 56.0, 58.0, 56.0, 58.0, from + 7 * frequencyData),
-                _candleItem(Colors.green, 55.0, 57.0, 53.0, 58.0, from + 8 * frequencyData),
-                _candleItem(Colors.green, 54.0, 56.0, 53.0, 58.0, from + 9 * frequencyData),
-                _candleItem(Colors.red, 53.0, 56.0, 53.0, 56.0, from + 10 * frequencyData),
-                _candleItem(Colors.red, 52.0, 54.0, 51.0, 57.0, from + 11 * frequencyData),
-                _candleItem(Colors.green, 50.0, 52.0, 48.0, 53.0, from + 12 * frequencyData),
-              ],
+        items: List.generate(
+          13,
+          (index) => _candleItem(
+            Random().nextBool() ? Colors.red : Colors.green,
+            Random().nextDouble() * 9 + 50,
+            Random().nextDouble() * 9 + 50,
+            Random().nextDouble() * 9 + 50,
+            Random().nextDouble() * 9 + 50,
+            from + index * frequencyData,
+          ),
+        ),
         settings: const ChartCandleSettings(),
       ),
     ];

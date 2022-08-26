@@ -5,9 +5,7 @@ import 'package:flutter_samples/mrx_chart/pages/line_page.dart';
 import 'package:flutter_samples/mrx_chart/pages/pie_page.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -19,8 +17,9 @@ class MyApp extends StatelessWidget {
       title: 'Chart',
       theme: ThemeData(
         primarySwatch: Colors.amber,
+        brightness: Brightness.dark,
       ),
-      home: const LinePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -45,9 +44,6 @@ class HomePage extends StatelessWidget {
                   builder: (_) => const BarPage(),
                 ),
               ),
-              style: ElevatedButton.styleFrom(
-                primary: const Color(0xFF1B0E41),
-              ),
               child: const Padding(
                 padding: EdgeInsets.all(12.0),
                 child: Text('Bar'),
@@ -61,9 +57,6 @@ class HomePage extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (_) => const GroupBarPage(),
                 ),
-              ),
-              style: ElevatedButton.styleFrom(
-                primary: const Color(0xFF1B0E41),
               ),
               child: const Padding(
                 padding: EdgeInsets.all(12.0),
@@ -79,9 +72,6 @@ class HomePage extends StatelessWidget {
                   builder: (_) => const CandlePage(),
                 ),
               ),
-              style: ElevatedButton.styleFrom(
-                primary: const Color(0xFF1B0E41),
-              ),
               child: const Padding(
                 padding: EdgeInsets.all(12.0),
                 child: Text('Candle'),
@@ -96,9 +86,6 @@ class HomePage extends StatelessWidget {
                   builder: (_) => const LinePage(),
                 ),
               ),
-              style: ElevatedButton.styleFrom(
-                primary: const Color(0xFF1B0E41),
-              ),
               child: const Padding(
                 padding: EdgeInsets.all(12.0),
                 child: Text('Line'),
@@ -112,9 +99,6 @@ class HomePage extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (_) => const PiePage(),
                 ),
-              ),
-              style: ElevatedButton.styleFrom(
-                primary: const Color(0xFF1B0E41),
               ),
               child: const Padding(
                 padding: EdgeInsets.all(12.0),

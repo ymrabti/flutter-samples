@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const SplashScreen(),
-      routes: {
+      routes: <String, Widget Function(BuildContext)>{
         SellersScreen.routeName: (_) => const SellersScreen(),
         ProductScreen.routeName: (_) => const ProductScreen(),
         ProductDetailsScreen.routeName: (_) => const ProductDetailsScreen(),

@@ -28,7 +28,9 @@ class _ProductScreenState extends State<ProductScreen> {
                 _products = value;
               })
             })
-        .catchError((e) => print(e));
+        .catchError((e) {
+      print(e);
+    });
   }
 
   @override
@@ -84,8 +86,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   height: 20.0,
                   width: 20.0,
                   child: CircularProgressIndicator(
-                    valueColor:
-                        AlwaysStoppedAnimation<Color>(Color(0xff4E8489)),
+                    valueColor: AlwaysStoppedAnimation<Color>(Color(0xff4E8489)),
                     strokeWidth: 1.5,
                   ),
                 ),
